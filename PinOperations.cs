@@ -45,8 +45,20 @@ static class PinOperations
     {
         Console.WriteLine("Type your new PIN: ");
         string newPin = Console.ReadLine();
-        if (newPin.Length !=4) {
+        if (newPin.Length != 4) {
             // pin is either to short or to long
+            Console.WriteLine("Pin need to consist of 4 digits only");
+            Console.WriteLine("Do you still want to change the PIN (Y/N): ");
+            string wantToContinue = Console.ReadLine();
+            if (wantToContinue == "Y" || wantToContinue == "y")
+            {
+                ChangeThePin();
+            }
+            else
+            {
+                Console.WriteLine("Back to operations"); // back to the main operation menu
+                Console.WriteLine("=======================");
+            }
         }
         else
         {
@@ -55,6 +67,8 @@ static class PinOperations
             {
                 // this will be fine
                 cardSavedPin = newPin;
+                Console.WriteLine("New PIN was succesfully saved");
+                Console.WriteLine("=======================");
             }
             else
             {

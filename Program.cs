@@ -6,7 +6,13 @@ namespace ATM
     {
         static void Main(string[] args)
         {
+            MainOperationMenu mainOperationMenu = new MainOperationMenu();
+            LanguageCommands languageCommands = new LanguageCommands();
+
+            languageCommands.ChooseDifferentLanguage();
             PinOperations.PinAskingProcess();
+            
+            mainOperationMenu.DisplayMainMenu(); // protect this from being running if card is locked
         }
 
 
@@ -14,7 +20,7 @@ namespace ATM
         #region Maths - M0LA15
         private static void LA15Task1()
         {
-            int[] source = { 50, 56, -30, 99, 8, -200}; // array of the possible numbers
+            int[] source = { 50, 56, -30, 99, 8, -200 }; // array of the possible numbers
             int number = source[0];
             for (int i = 1; i < source.Length; i++)
             {
@@ -28,17 +34,17 @@ namespace ATM
 
         private static void LA15Task2()
         {
-            
+
         }
 
         private static void LA15Task3()
         {
-            
+
         }
 
         private static void LA15Task4()
         {
-            
+
         }
         #endregion
         #region StringTasks M07LA14
@@ -75,7 +81,7 @@ namespace ATM
         }
         static void LA14Task4()
         {
-            string newTrimmed = myString.Substring(12,20);
+            string newTrimmed = myString.Substring(12, 20);
             Console.WriteLine(newTrimmed);
         }
         static void LA14Task5()
@@ -97,7 +103,8 @@ namespace ATM
         static void LA14Task8()
         {
             // display each characted in separate line
-            for (int i = 0; i < textToSpell.Length; i++) {
+            for (int i = 0; i < textToSpell.Length; i++)
+            {
                 Console.WriteLine(textToSpell[i]);
             }
         }
@@ -113,61 +120,4 @@ namespace ATM
         #endregion
 
     }
-    class DisplayMessages
-    {
-        public DisplayMessages()
-        {
-
-        }
-        
-        static string[] country = { "EN", "PL" }; // this is the list of possible languages;
-        static string currentLanguage = country[0];
-
-        public static List<string> currentCommands = new List<string>();
-        public static List<string> commandsEN = new List<string> 
-        {
-            "Welcome to the ATM",
-            "Please insert your card to the machine",
-            "Please type your PIN and press Enter",
-            "PIN is Correct",
-            "PIN is Incorrect",
-            "What would you like to do:",
-            "1. Check the balance",
-            "2. Withdraw",
-            "3. Deposit",
-            "4. Change PIN",
-            "5. Finish",
-            "Pin changed successfully",
-            "Could not change the PIN",
-
-        };
-        public static List<string> commandsPL = new List<string> 
-        { 
-
-        };
-
-
-        public static void ChangeLanguage(string code)
-        {
-            int index = Array.IndexOf(country, code);  // check if the code exist as element of the country array
-            if (index !=-1) // if that exist then gets it ID
-            {
-                currentLanguage = country[index]; // assign the id of the country[ID] to currentLanguage
-                switch(currentLanguage)
-                {
-                    case "EN":
-                        currentCommands = commandsEN;
-                        break;
-                    case "PL":
-                        currentCommands = commandsPL;
-                        break;
-                }
-            }
-            else
-            {
-                currentLanguage = country[0]; // change to default English
-            }
-        }
-    }
-
 }
