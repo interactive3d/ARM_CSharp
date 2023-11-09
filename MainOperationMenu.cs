@@ -1,21 +1,36 @@
 ﻿using System;
 
-public class MainOperationMenu
+public static class MainOperationMenu
 {
-	public MainOperationMenu()
-	{
-	}
-
-	public void DisplayMainMenu()
-	{
+    public static void DisplayMainMenu()
+    {
         Console.WriteLine("=======================");
-        Console.WriteLine("What would you like to do?");
+        Console.WriteLine(LanguageCommands.ATMessage("operWhat"));
         Console.WriteLine("=======================");
-        Console.WriteLine("1. Check balance");
-        Console.WriteLine("2. Withdraw cash");
-        Console.WriteLine("3. Change Pin");
-        Console.WriteLine("4. Finish for today");
+        Console.WriteLine(LanguageCommands.ATMessage("operBalance"));
+        Console.WriteLine(LanguageCommands.ATMessage("operCash"));
+        Console.WriteLine(LanguageCommands.ATMessage("operPin"));
+        Console.WriteLine(LanguageCommands.ATMessage("operEnd"));
+        string optionSelected = Console.ReadLine();
+        if (optionSelected == "1")
+        {
+            BalanceOperations.ShowMeMyBalance();
+        }
+        else if (optionSelected == "2")
+        {
 
+        }
+        else if (optionSelected == "3")
+        {
+            PinOperations.ChangeThePin();
+        }
+        else if (optionSelected == "4")
+        {
+
+        }
+        else { 
+
+        }
     }
 
 }

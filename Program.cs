@@ -6,13 +6,10 @@ namespace ATM
     {
         static void Main(string[] args)
         {
-            MainOperationMenu mainOperationMenu = new MainOperationMenu();
-            LanguageCommands languageCommands = new LanguageCommands();
-
-            languageCommands.ChooseDifferentLanguage();
+            LanguageCommands.ChooseDifferentLanguage();
+            LanguageCommands.ATMessage("welcome");
             PinOperations.PinAskingProcess();
-            
-            mainOperationMenu.DisplayMainMenu(); // protect this from being running if card is locked
+            MainOperationMenu.DisplayMainMenu(); // protect this from being running if card is locked
         }
 
 

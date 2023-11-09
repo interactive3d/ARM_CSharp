@@ -8,7 +8,7 @@ static class PinOperations
     static string[] possiblePinChar = {"0", "1","2", "3", "4", "5", "6", "7", "8", "9"};
 
     public static void PinAskingProcess (){
-        Console.Write("Please type your PIN number: ");
+        Console.Write(LanguageCommands.ATMessage("typePin"));
         string tempPin = Console.ReadLine();
         CheckThePin(tempPin);
     }
@@ -18,7 +18,7 @@ static class PinOperations
        if (tempPin != cardSavedPin)
        {
             numberOfPinAttempts++; // increate the 
-            Console.WriteLine("Pin is incorrect");
+            Console.WriteLine(LanguageCommands.ATMessage("pinWRONG"));
             Console.WriteLine("=======================");
             if (numberOfPinAttempts < 3)
             {
@@ -26,15 +26,15 @@ static class PinOperations
             }
             else
             {
-                Console.WriteLine("To many attempts");
-                Console.WriteLine("Card has been locked");
+                Console.WriteLine(LanguageCommands.ATMessage("pinToMany"));
+                Console.WriteLine(LanguageCommands.ATMessage("pinLocked"));
                 Console.WriteLine("=======================");
             }
         }
        else
         {
             // pin is correct
-            Console.WriteLine("PIN is correct");
+            Console.WriteLine(LanguageCommands.ATMessage("pinOK"));
             Console.WriteLine("=======================");
             // move to operation class
         }
@@ -43,12 +43,12 @@ static class PinOperations
 
     public static void ChangeThePin()
     {
-        Console.WriteLine("Type your new PIN: ");
+        Console.WriteLine(LanguageCommands.ATMessage("newPINType"));
         string newPin = Console.ReadLine();
         if (newPin.Length != 4) {
             // pin is either to short or to long
-            Console.WriteLine("Pin need to consist of 4 digits only");
-            Console.WriteLine("Do you still want to change the PIN (Y/N): ");
+            Console.WriteLine(LanguageCommands.ATMessage("newPin4D"));
+            Console.WriteLine(LanguageCommands.ATMessage("newPinContinue"));
             string wantToContinue = Console.ReadLine();
             if (wantToContinue == "Y" || wantToContinue == "y")
             {
@@ -56,7 +56,7 @@ static class PinOperations
             }
             else
             {
-                Console.WriteLine("Back to operations"); // back to the main operation menu
+                Console.WriteLine(LanguageCommands.ATMessage("backToMain")); // back to the main operation menu
                 Console.WriteLine("=======================");
             }
         }
@@ -67,8 +67,9 @@ static class PinOperations
             {
                 // this will be fine
                 cardSavedPin = newPin;
-                Console.WriteLine("New PIN was succesfully saved");
+                Console.WriteLine(LanguageCommands.ATMessage("newPinSuccess"));
                 Console.WriteLine("=======================");
+                Console.ReadKey();
             }
             else
             {
