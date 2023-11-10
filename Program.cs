@@ -7,7 +7,7 @@ namespace ATM
         static void Main(string[] args)
         {
             LanguageCommands.ChooseDifferentLanguage();
-            LanguageCommands.ATMessage("welcome");
+            // LanguageCommands.ATMessage("welcome");
             PinOperations.PinAskingProcess();
             MainOperationMenu.DisplayMainMenu(); // protect this from being running if card is locked
         }
