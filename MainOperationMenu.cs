@@ -18,7 +18,7 @@ public static class MainOperationMenu
         }
         else if (optionSelected == "2")
         {
-
+            Withdraw.WithdrawMoney();
         }
         else if (optionSelected == "3")
         {
