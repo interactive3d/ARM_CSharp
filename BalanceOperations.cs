@@ -8,9 +8,11 @@ public static class BalanceOperations
 	public static void ShowMeMyBalance()
 	{
         Console.WriteLine("=======================");
-		Console.WriteLine("You current balance is: " + myBalance + " " + currency);
+		string balanceInfo = myBalance + " " + currency;
+
+        Console.WriteLine(LanguageCommands.ATMessage("balnceIs") + balanceInfo);
         Console.WriteLine("=======================");
-        Console.WriteLine("Press any key to return to main menu");
+        Console.WriteLine(LanguageCommands.ATMessage("anyKey"));
 		Console.ReadKey();
 		MainOperationMenu.DisplayMainMenu();
     }

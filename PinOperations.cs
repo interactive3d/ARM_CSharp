@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 
 static class PinOperations
 {
@@ -31,11 +32,12 @@ static class PinOperations
                 Console.WriteLine("=======================");
             }
         }
-       else
+       else if (tempPin == cardSavedPin)
         {
             // pin is correct
             Console.WriteLine(LanguageCommands.ATMessage("pinOK"));
             Console.WriteLine("=======================");
+            Console.ReadKey();
             // move to operation class
         }
     }
@@ -60,20 +62,22 @@ static class PinOperations
                 Console.WriteLine("=======================");
             }
         }
-        else
-        {
+        else if (newPin.Length == 4) {
             // check condition either pin consist only number
-            if (Convert.ToInt32(newPin) != null)
+            try 
             {
+                int a = Convert.ToInt32(newPin);
                 // this will be fine
-                cardSavedPin = newPin;
+                cardSavedPin = a.ToString();
                 Console.WriteLine(LanguageCommands.ATMessage("newPinSuccess"));
                 Console.WriteLine("=======================");
-                Console.ReadKey();
+                PinAskingProcess();
+                //Console.ReadKey();
+                MainOperationMenu.DisplayMainMenu();
             }
-            else
+            catch (FormatException e) 
             {
-                // display that only numbers are possible
+                Console.WriteLine(LanguageCommands.ATMessage("newPin4D"));
             }
         }
     }

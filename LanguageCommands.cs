@@ -27,6 +27,8 @@ public static class LanguageCommands {
         
         {"pinToMany","To many attempts"},
         {"pinLocked","Card has been locked"},
+        {"anyKey","Press any key to return to main menu"},
+        {"balnceIs","You balance is: "},
         {"",""},
     };
     public static Dictionary<string, string> atmCommandsPL = new Dictionary<string, string>()
@@ -40,13 +42,15 @@ public static class LanguageCommands {
             {"newPinContinue", "Do you still want to change the PIN (Y/N): " },
             {"backToMain", "Powrót do menu Operacji" },
             {"newPinSuccess", "Zapisano nowy numer PIN" },
-            {"operWhat", "Wybierz typ operacji:22" },
+            {"operWhat", "Wybierz typ operacji: " },
             {"operBalance", "1. Sprawdź stan konta" },
             {"operCash", "2. Pobrać gotówkę" },
             {"operPin", "3. Zmienić PIN" },
             {"operEnd", "4. Zakończyć" },
             {"pinToMany","Za duża ilość prób"},
             {"pinLocked","Karta została zablokowana"},
+            {"anyKey","Naciśnij dowolny klawisz aby powrócić do menu głównego"},
+            {"balnceIs","Środki na koncie: "},
             {"",""},
         };
     public static Dictionary<string, string> currentCommands = new Dictionary<string, string>();
